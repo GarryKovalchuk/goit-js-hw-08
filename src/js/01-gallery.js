@@ -5,8 +5,6 @@ import { galleryItems } from './gallery-items';
 // Change code below this line
 const list = document.querySelector('.gallery');
 const itemsMarkup = createGalleryItemsMarkup(galleryItems);
-list.insertAdjacentHTML('beforeend', itemsMarkup);
-list.addEventListener('click', onImgClick);
 
 function createGalleryItemsMarkup(items) {
   return items
@@ -26,4 +24,11 @@ function createGalleryItemsMarkup(items) {
     .join('');
 }
 
+list.insertAdjacentHTML('beforeend', itemsMarkup);
+
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+  captionPosition: 'bottom',
+});
 console.log(galleryItems);
